@@ -7,3 +7,5 @@
 <%= @issue.subject %>
 <label>Project</label>
 <%= @issue.project.name %>
+<label>Link</label>
+<%= link_to(@issue.subject.truncate(60), issue_path(@issue)) %> (<%= @issue.status %>)
