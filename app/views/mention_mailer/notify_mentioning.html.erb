@@ -1,10 +1,4 @@
-<strong>You were mentioned by <%= @journal.user.login %> on <%= @journal.created_on.to_s(:db) %></strong>
-<br />
-<label>Subject: </label>
-<%= link_to(@issue.subject.truncate(60), issue_path(@issue)) %> (<%= @issue.status %>)
-<br />
-<label>Project: </label>
-<%= @issue.project.name %>
-<p>
-  <%= @journal.notes %>
-</p>
+<p>You were mentioned in issue #<%= @issue.id %> by <%= @journal.user.name %> on <%= @journal.created_on.to_s(:db) %>.</p>
+<p><%= @journal.notes %></p>
+<hr />
+<%= render :partial => 'mailer/issue', :formats => [:html], :locals => { :issue => @issue, :users => [@issue.assigned_to], :issue_url => @issue_url } %> }
