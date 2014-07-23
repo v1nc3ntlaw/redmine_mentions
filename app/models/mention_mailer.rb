@@ -5,10 +5,10 @@ class MentionMailer < ActionMailer::Base
     Mailer.default_url_options
   end
 
-
   def notify_mentioning(issue, journal, user)
     @issue = issue
     @journal = journal
-    mail(to: user.mail, subject: "You were mentioned in a issue.")
+    subject = "[#{issue.project.name} - #{issue.tracker.name} ##{issue.id}] You were mentioned. #{issue.subject}"
+    mail(to: user.mail, subject: subject)
   end
 end
