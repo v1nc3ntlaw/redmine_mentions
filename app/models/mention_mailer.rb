@@ -1,6 +1,10 @@
 class MentionMailer < ActionMailer::Base
-  layout 'mailer'
   default from: Setting.mail_from
+  layout 'mailer'
+  helper :application
+  helper :issues
+  helper :custom_fields
+
   def self.default_url_options
     Mailer.default_url_options
   end
