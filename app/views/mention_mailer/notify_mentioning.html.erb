@@ -1,4 +1,4 @@
 <p>You were mentioned in issue #<%= @issue.id %> by <%= @journal.user.name %> on <%= @journal.created_on.to_s(:db) %>.</p>
 <p><%= @journal.notes %></p>
 <hr />
-<%= render :partial => 'mailer/issue', :formats => [:html], :locals => { :issue => @issue, :users => [@issue.assigned_to], :issue_url => @issue_url } %> }
+<%= render :partial => 'mailer/issue', :formats => [:html], :locals => { :issue => @issue, :users => [@issue.assigned_to], :issue_url => @issue_url } %>
